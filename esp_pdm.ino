@@ -22,38 +22,15 @@ uint8_t phase = 0;
 void loop()
 {
     writeDAC(0x8000 + sinus[phase]);
-    
     phase++;
-   
-    
-}
-/*
-void writeDAC(uint16_t DAC) {
-  uint32_t i2sACC;
-uint16_t err;
- for (uint8_t i=0;i<32;i++) { 
-  i2sACC=i2sACC<<1;
-  if(DAC >= err) {
-    i2sACC|=1;
-    err += 0xFFFF-DAC;
-  }
-    else
-  {
-    err -= DAC;
-  }
- }
- bool flag=i2s_write_sample(i2sACC);
 }
 
-*/
 
 uint32_t acc;
 uint16_t err;
 
 void writeDAC(uint16_t value)
 {
-    
-
     for (uint8_t i = 0; i < 32; i++)
     {
         acc = acc << 1;
